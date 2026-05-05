@@ -765,4 +765,43 @@
       width: 100%;
       max-width: 340px;
     }
+      /* إخفاء زر القائمة في الشاشات الكبيرة */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text);
+}
+
+@media (max-width: 900px) {
+    /* إظهار زر القائمة في الهاتف */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* جعل النافبار أكثر مرونة */
+    .navbar {
+        grid-template-columns: auto 1fr auto; /* إعادة توزيع المساحات */
+    }
+
+    /* تنسيق الروابط لتظهر كقائمة عمودية عند الضغط */
+    .nav-links {
+        display: none; /* مخفية افتراضياً */
+        position: absolute;
+        top: 80px;
+        left: 5%;
+        width: 90%;
+        flex-direction: column;
+        background: var(--card);
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+    }
+    
+    .nav-links.active {
+        display: flex; /* تظهر عند إضافة كلاس active عبر JS */
+    }
+
   }
