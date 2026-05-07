@@ -29,26 +29,7 @@ if (menuToggle && navLinksContainer) {
 }
 
 // --- تفعيل الرسوم المتحركة عند التمرير (Reveal Animation) ---
-const animatedElements = document.querySelectorAll(
-  ".section-title, .about-card, .feature-card, .step, .screen-card, .team-card, .contact-card"
-);
 
-animatedElements.forEach((element) => {
-  element.classList.add("reveal");
-});
-
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
-    });
-  },
-  { threshold: 0.14 }
-);
-
-animatedElements.forEach((element) => observer.observe(element));
 
 // --- تحديث الرابط النشط في النافبار عند التمرير ---
 const sections = document.querySelectorAll("section[id]");
