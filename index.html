@@ -9,6 +9,7 @@
 
 <body>
   <div class="cursor-glow"></div>
+  <div class="page-noise"></div>
 
   <!-- Header -->
   <header class="header">
@@ -17,7 +18,14 @@
         <div class="logo-wrapper">
           <span class="logo-orbit"></span>
           <span class="logo-orbit orbit-two"></span>
-          <img src="logo.png" class="logo-icon-img" alt="DiabeCare Logo">
+          <img
+  id="siteLogo"
+  src="logo.png"
+  data-light-logo="logo.png"
+  data-dark-logo="logo.png"
+  class="logo-icon-img"
+  alt="DiabeCare Logo"
+>
         </div>
         <span>DiabeCare</span>
       </div>
@@ -32,33 +40,43 @@
       </ul>
 
       <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle" type="button">🌙</button>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+          <span class="theme-toggle-icon">☾</span>
+        </button>
         <a href="#contact" class="nav-button">Contact Us</a>
       </div>
     </nav>
   </header>
 
   <!-- Hero -->
-  <section class="hero">
-    <div class="hero-content">
+  <section class="hero" id="top">
+    <div class="hero-bg-shape shape-one"></div>
+    <div class="hero-bg-shape shape-two"></div>
+
+    <div class="hero-content reveal">
       <p class="tag">Smart Type 1 Diabetes Support</p>
       <h1>DiabeCare</h1>
       <h2>Smart Diabetes Care for Safer Daily Decisions</h2>
       <p>
         DiabeCare is a smart mobile application designed to support people with
         Type 1 diabetes by connecting blood glucose tracking, meal logging,
-        carbohydrate counting, insulin guidance, follow-up reminders, and
-        guardian support in one simple workflow.
+        carbohydrate counting, insulin guidance, follow-up reminders, AI insights,
+        and guardian support in one simple workflow.
       </p>
 
       <div class="hero-buttons">
         <a href="#features" class="btn primary">Explore Features</a>
-        <a href="#about" class="btn secondary">View Project</a>
+        <a href="#screens" class="btn secondary">View Screens</a>
+      </div>
+
+      <div class="hero-stats">
+  
       </div>
     </div>
 
-    <div class="hero-preview">
-      <div class="phone-card">
+    <div class="hero-preview reveal delay-1">
+      <div class="phone-card tilt-card">
+        <div class="phone-notch"></div>
         <div class="phone-header">
           <span>Today</span>
           <span class="status">Target</span>
@@ -89,13 +107,13 @@
 
   <!-- About -->
   <section class="section" id="about">
-    <div class="section-title">
+    <div class="section-title reveal">
       <p>About Project</p>
       <h2>About DiabeCare</h2>
     </div>
 
     <div class="about-grid">
-      <div class="about-card">
+      <div class="about-card reveal tilt-card">
         <h3>Project Idea</h3>
         <p>
           DiabeCare was developed as a senior project to help users manage Type 1
@@ -106,7 +124,7 @@
         </p>
       </div>
 
-      <div class="about-card">
+      <div class="about-card reveal delay-1 tilt-card">
         <h3>The Problem</h3>
         <p>
           Many people with Type 1 diabetes need to make several decisions every
@@ -121,43 +139,50 @@
 
   <!-- Features -->
   <section class="section light-section" id="features">
-    <div class="section-title">
+    <div class="section-title reveal">
       <p>Core Features</p>
       <h2>Main Features</h2>
     </div>
 
     <div class="features-grid">
-      <div class="feature-card">
+      <div class="feature-card reveal tilt-card">
+        <span class="feature-icon">🩸</span>
         <h3>Blood Glucose Tracking</h3>
         <p>Record and monitor blood glucose readings with clear status labels.</p>
       </div>
 
-      <div class="feature-card">
+      <div class="feature-card reveal delay-1 tilt-card">
+        <span class="feature-icon">🍽️</span>
         <h3>Meal & Carb Counting</h3>
         <p>Select meals, calculate carbohydrates, and review meal details before making a decision.</p>
       </div>
 
-      <div class="feature-card">
+      <div class="feature-card reveal delay-2 tilt-card">
+        <span class="feature-icon">💉</span>
         <h3>Insulin Guidance</h3>
         <p>Provide structured insulin guidance based on meal information and user settings.</p>
       </div>
 
-      <div class="feature-card">
+      <div class="feature-card reveal tilt-card">
+        <span class="feature-icon">📘</span>
         <h3>Daily Log</h3>
         <p>View previous readings, meals, notes, and decisions in one organized place.</p>
       </div>
 
-      <div class="feature-card">
+      <div class="feature-card reveal delay-1 tilt-card">
+        <span class="feature-icon">📊</span>
         <h3>Weekly Overview</h3>
         <p>Review weekly glucose records using a simple table view.</p>
       </div>
 
-      <div class="feature-card">
+      <div class="feature-card reveal delay-2 tilt-card">
+        <span class="feature-icon">🛡️</span>
         <h3>Guardian Mode</h3>
         <p>Allow a guardian to follow and support the user through connected monitoring.</p>
       </div>
 
-      <div class="feature-card">
+      <div class="feature-card reveal tilt-card">
+        <span class="feature-icon">🤖</span>
         <h3>AI Insights</h3>
         <p>Use smart analysis to help users understand patterns and improve future decisions.</p>
       </div>
@@ -166,31 +191,31 @@
 
   <!-- How It Works -->
   <section class="section">
-    <div class="section-title">
+    <div class="section-title reveal">
       <p>Workflow</p>
       <h2>How DiabeCare Works</h2>
     </div>
 
     <div class="steps">
-      <div class="step">
+      <div class="step reveal tilt-card">
         <span>1</span>
         <h3>Check Blood Glucose</h3>
         <p>The user records a blood glucose reading before the meal.</p>
       </div>
 
-      <div class="step">
+      <div class="step reveal delay-1 tilt-card">
         <span>2</span>
         <h3>Select Meal</h3>
         <p>The user selects food items or enters custom meal information.</p>
       </div>
 
-      <div class="step">
+      <div class="step reveal delay-2 tilt-card">
         <span>3</span>
         <h3>Review Guidance</h3>
         <p>The app calculates carbohydrates and provides insulin guidance.</p>
       </div>
 
-      <div class="step">
+      <div class="step reveal delay-3 tilt-card">
         <span>4</span>
         <h3>Follow Up</h3>
         <p>The app reminds the user to check blood glucose after the meal.</p>
@@ -199,57 +224,92 @@
   </section>
 
   <!-- Screens -->
-  <section class="section light-section" id="screens">
-    <div class="section-title">
+  <section class="section light-section screens-showcase-section" id="screens">
+    <div class="section-title reveal">
       <p>App Interface</p>
       <h2>App Screens</h2>
       <p class="section-description">
-        The interface is designed with a clean medical style, rounded cards,
-        simple navigation, and clear visual feedback.
+        Explore the main DiabeCare interfaces using the screen tabs and page buttons below.
       </p>
     </div>
 
-    <div class="screens-grid">
-      <div class="screen-card">Dashboard</div>
-      <div class="screen-card">Daily Log</div>
-      <div class="screen-card">Meal Flow</div>
-      <div class="screen-card">Guardian Mode</div>
+    <div class="screens-console reveal">
+      <div class="console-stage">
+        <div class="screen-preview-wrap">
+          <div class="app-phone-frame">
+            <div class="phone-top-bar"></div>
+            <img
+              id="activeScreenImage"
+              name="dashboard"
+              src="dashboard-1.png"
+              alt="Dashboard page 1 preview"
+            >
+          </div>
+          <div class="screen-page-buttons" id="screenPageButtons"></div>
+        </div>
+
+        <div class="screen-info-panel">
+          <div class="screen-caption">
+            <span class="caption-label">Selected Interface</span>
+            <h3 id="screenTitle">Dashboard</h3>
+            <p id="screenDescription">
+              Home screen with glucose status, quick actions, and follow-up reminders.
+            </p>
+          </div>
+
+          <div class="screen-tabs" role="tablist" aria-label="App screens">
+            <button class="screen-tab" data-screen="splash" type="button">Splash</button>
+            <button class="screen-tab" data-screen="login" type="button">Login</button>
+            <button class="screen-tab" data-screen="signup" type="button">Sign Up</button>
+            <button class="screen-tab active" data-screen="dashboard" type="button">Dashboard</button>
+            <button class="screen-tab" data-screen="glucose" type="button">Check Glucose</button>
+            <button class="screen-tab" data-screen="foods" type="button">Food Library</button>
+            <button class="screen-tab" data-screen="foodscale" type="button">Food Scale</button>
+            <button class="screen-tab" data-screen="insulin" type="button">Insulin Guidance</button>
+            <button class="screen-tab" data-screen="dailylog" type="button">Daily Log</button>
+            <button class="screen-tab" data-screen="weekly" type="button">Weekly Overview</button>
+            <button class="screen-tab" data-screen="guardian" type="button">Guardian</button>
+            <button class="screen-tab" data-screen="ai" type="button">AI Insights</button>
+            <button class="screen-tab" data-screen="settings" type="button">Settings</button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Team -->
   <section class="section" id="team">
-    <div class="section-title">
+    <div class="section-title reveal">
       <p>Our Team</p>
       <h2>Project Team</h2>
     </div>
 
     <div class="team-grid">
-      <div class="team-card">
+      <div class="team-card reveal tilt-card">
         <div class="member-image-wrap">
           <img src="member2.png" class="member-image" alt="Ali Jaffar Khalaf">
         </div>
         <h3>Ali Jaffar Khalaf</h3>
         <span>Developer</span>
       </div>
-    
-      <div class="team-card">
+
+      <div class="team-card reveal delay-1 tilt-card">
         <div class="member-image-wrap">
           <img src="member1.png" class="member-image" alt="Ammar Ali Matrook">
         </div>
         <h3>Ammar Ali Matrook</h3>
         <span>Developer & Designer</span>
       </div>
-    
-      <div class="team-card">
+
+      <div class="team-card reveal delay-2 tilt-card">
         <div class="member-image-wrap">
           <img src="member3.png" class="member-image" alt="Mohamed Ahmed Alaali">
         </div>
         <h3>Mohamed Ahmed Alaali</h3>
         <span>Developer</span>
       </div>
-    
-      <div class="team-card">
+
+      <div class="team-card reveal delay-3 tilt-card">
         <div class="member-image-wrap">
           <img src="member4.png" class="member-image" alt="Dr. YAQOOB SALMAN MOHAMED ALSLAIS">
         </div>
@@ -261,7 +321,7 @@
 
   <!-- Tools -->
   <section class="section light-section" id="tools">
-    <div class="section-title">
+    <div class="section-title reveal">
       <p>Project Tools</p>
       <h2>Tools & Technologies</h2>
       <p class="section-description">
@@ -270,32 +330,32 @@
     </div>
 
     <div class="tools-grid">
-      <div class="tool-card">
+      <div class="tool-card reveal tilt-card">
         <h3>Flutter</h3>
         <p>Used to build the mobile application interface and main app screens.</p>
       </div>
 
-      <div class="tool-card">
+      <div class="tool-card reveal delay-1 tilt-card">
         <h3>Firebase</h3>
         <p>Used for authentication, database, syncing, and cloud storage.</p>
       </div>
 
-      <div class="tool-card">
+      <div class="tool-card reveal delay-2 tilt-card">
         <h3>Supabase / AI API</h3>
         <p>Used to support the AI Insights feature and smart summaries.</p>
       </div>
 
-      <div class="tool-card">
+      <div class="tool-card reveal tilt-card">
         <h3>VS Code</h3>
         <p>Used as the main development environment for coding the project.</p>
       </div>
 
-      <div class="tool-card">
+      <div class="tool-card reveal delay-1 tilt-card">
         <h3>GitHub</h3>
         <p>Used to host and publish the project website publicly.</p>
       </div>
 
-      <div class="tool-card">
+      <div class="tool-card reveal delay-2 tilt-card">
         <h3>HTML, CSS & JavaScript</h3>
         <p>Used to build the public senior project website.</p>
       </div>
@@ -304,7 +364,7 @@
 
   <!-- Contact -->
   <section class="section contact-section" id="contact">
-    <div class="contact-card">
+    <div class="contact-card reveal tilt-card">
       <h2>Contact Us</h2>
       <p>
         For project inquiries, feedback, or collaboration, contact the DiabeCare
