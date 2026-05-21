@@ -38,15 +38,27 @@ html {
 }
 
 body {
+  overflow-x: hidden;
   background:
     radial-gradient(circle at top left, rgba(108, 76, 241, 0.18), transparent 35%),
     radial-gradient(circle at top right, rgba(170, 130, 255, 0.16), transparent 35%),
     linear-gradient(180deg, #f7f4ff 0%, #efeaff 100%);
   color: var(--text);
-  transition: 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-
+.page-noise {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+  opacity: 0.22;
+  background-image:
+    linear-gradient(rgba(108, 76, 241, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(108, 76, 241, 0.04) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(circle at center, black, transparent 72%);
+}
 
 /* Header */
 .header {
@@ -84,17 +96,13 @@ body.dark .header {
   display: flex;
   align-items: center;
   gap: 9px;
-  padding: 0;
-  border-radius: 0;
-  background: transparent;
-  border: none;
   color: var(--primary);
   font-weight: 900;
   font-size: 22px;
   letter-spacing: -0.6px;
+  text-decoration: none;
 }
 
-/* Apple / Tesla Logo System */
 .logo-wrapper {
   position: relative;
   width: 58px;
@@ -109,10 +117,16 @@ body.dark .header {
   border-radius: 16px;
   object-fit: cover;
   z-index: 3;
+  padding: 3px;
+  background: rgba(255, 255, 255, 0.72);
   animation: logoBreath 4.5s ease-in-out infinite;
   box-shadow:
     0 14px 30px rgba(108, 76, 241, 0.32),
     0 0 22px rgba(139, 108, 255, 0.45);
+}
+
+body.dark .logo-icon-img {
+  background: rgba(14, 12, 24, 0.72);
 }
 
 .logo-orbit {
@@ -157,7 +171,6 @@ body.dark .header {
     0 0 38px rgba(139, 108, 255, 0.75);
 }
 
-/* Cursor glow */
 .cursor-glow {
   position: fixed;
   width: 320px;
@@ -208,19 +221,34 @@ body.dark .header {
 }
 
 .theme-toggle {
-  width: 48px;
-  height: 48px;
-  border-radius: 18px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
   border: 1px solid rgba(108, 76, 241, 0.16);
-  background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.58));
+  background: #ffffff;
+  color: #111827;
   cursor: pointer;
-  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: 0.25s ease;
-  box-shadow: 0 12px 28px rgba(68, 45, 150, 0.13);
+  box-shadow: 0 10px 26px rgba(68, 45, 150, 0.14);
 }
 
 .theme-toggle:hover {
-  transform: rotate(12deg) scale(1.08);
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 16px 34px rgba(108, 76, 241, 0.22);
+}
+
+.theme-toggle-icon {
+  font-size: 25px;
+  line-height: 1;
+}
+
+body.dark .theme-toggle {
+  background: #122033;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.16);
 }
 
 .nav-button,
@@ -323,7 +351,7 @@ body.dark .header {
   box-shadow: var(--shadow);
 }
 
-/* Phone */
+/* Hero Phone */
 .hero-preview {
   display: flex;
   justify-content: center;
@@ -361,6 +389,18 @@ body.dark .header {
   border-radius: 50%;
   right: -70px;
   top: -60px;
+}
+
+.phone-notch {
+  width: 88px;
+  height: 24px;
+  border-radius: 0 0 18px 18px;
+  background: rgba(17, 16, 25, 0.12);
+  margin: -24px auto 18px;
+}
+
+body.dark .phone-notch {
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .phone-header,
@@ -428,6 +468,26 @@ body.dark .header {
 .quick-action.light {
   background: var(--bg-soft);
   color: var(--text);
+}
+
+body.dark .phone-card .mini-grid div {
+  background: rgba(139, 108, 255, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+body.dark .phone-card .mini-grid strong {
+  color: #bca7ff;
+}
+
+body.dark .phone-card .mini-grid span {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+body.dark .phone-card .quick-action.light {
+  background: linear-gradient(135deg, #3b2a78, #5d45c9);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 12px 26px rgba(108, 76, 241, 0.22);
 }
 
 /* Sections */
@@ -519,6 +579,17 @@ body.dark .light-section {
   line-height: 1.7;
 }
 
+.feature-icon {
+  width: 44px;
+  height: 44px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 16px;
+  margin-bottom: 14px;
+  background: rgba(108, 76, 241, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
 /* Steps */
 .steps {
   display: grid;
@@ -544,17 +615,372 @@ body.dark .light-section {
   box-shadow: 0 10px 24px rgba(108, 76, 241, 0.28);
 }
 
-/* Screens */
-.screen-card {
-  min-height: 170px;
-  display: flex;
-  align-items: flex-end;
-  font-weight: 800;
-  color: var(--primary);
-  background:
-    linear-gradient(135deg, rgba(108,76,241,0.14), transparent),
-    var(--card);
+/* ==========================================================================
+   4. SCREENS SHOWCASE SECTION (FUTURISTIC ULTRA EDITION)
+   ========================================================================== */
+.screens-showcase-section {
+  position: relative;
+  overflow: visible;
+  padding: 120px 24px;
 }
+
+/* خلفية متوهجة ديناميكية ونبضية خلف الكونسول */
+.screens-showcase-section::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(100vw, 700px);
+  height: 600px;
+  background: radial-gradient(circle, rgba(139, 108, 255, 0.22) 0%, transparent 70%);
+  z-index: -1;
+  pointer-events: none;
+  filter: blur(50px);
+  animation: pulseGlow 8s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+  50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+}
+
+/* الكونسول الرئيسي بتأثير زجاجي متطور Glassmorphism */
+.screens-console {
+  width: min(100%, 1200px);
+  margin: 0 auto;
+  padding: 50px 40px;
+  border-radius: 40px;
+  border: 1px solid rgba(108, 76, 241, 0.2);
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  box-shadow: 
+    0 35px 100px rgba(68, 45, 150, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 0 40px rgba(108, 76, 241, 0.03);
+  position: relative;
+}
+
+body.dark .screens-console {
+  background: rgba(24, 20, 36, 0.55);
+  border: 1px solid rgba(139, 108, 255, 0.15);
+  box-shadow: 
+    0 35px 100px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 0 50px rgba(139, 108, 255, 0.08);
+}
+
+.console-stage {
+  display: grid;
+  grid-template-columns: minmax(280px, 340px) 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+@media (max-width: 968px) {
+  .console-stage {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+}
+
+/* إطار الهاتف الخارق - 3D Futuristic Phone Frame */
+.screen-preview-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  position: relative;
+}
+
+.screen-preview-wrap::after {
+  content: "";
+  position: absolute;
+  width: 75%;
+  height: 75%;
+  top: 10%;
+  background: var(--primary);
+  filter: blur(60px);
+  opacity: 0.15;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.app-phone-frame {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 310px;
+  aspect-ratio: 9 / 19.5;
+  padding: 12px;
+  border-radius: 48px;
+  border: 11px solid #161424;
+  background: #0d0c14;
+  box-shadow:
+    0 45px 90px rgba(15, 11, 42, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 0 30px rgba(108, 76, 241, 0.2),
+    inset 0 0 20px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  animation: phoneFloatMighty 6s ease-in-out infinite;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+body.dark .app-phone-frame {
+  border-color: #27233d;
+  box-shadow:
+    0 45px 90px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 40px rgba(139, 108, 255, 0.25),
+    inset 0 0 20px rgba(0, 0, 0, 0.9);
+}
+
+@keyframes phoneFloatMighty {
+  0%, 100% { transform: translateY(0) rotateX(2deg) rotateY(-3deg); }
+  50% { transform: translateY(-15px) rotateX(-2deg) rotateY(3deg); }
+}
+
+/* محاكاة الجزيرة التفاعلية (Dynamic Island) للهواتف الذكية */
+.phone-top-bar {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95px;
+  height: 25px;
+  border-radius: 0 0 18px 18px;
+  background: #161424;
+  z-index: 5;
+}
+body.dark .phone-top-bar { background: #27233d; }
+
+.phone-top-bar::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 35px;
+  height: 5px;
+  background: #222;
+  border-radius: 999px;
+}
+
+.app-phone-frame img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 38px;
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), filter 0.35s ease;
+  background: linear-gradient(135deg, #191526, #111019);
+}
+
+.app-phone-frame img.image-missing {
+  opacity: 0.2 !important;
+  filter: grayscale(1) blur(3px);
+}
+
+/* أزرار الانتقال الداخلية الدائرية (Pagination Numbers) */
+.screen-page-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  z-index: 2;
+}
+
+.page-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(108, 76, 241, 0.18);
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.dark .page-dot {
+  background: rgba(31, 27, 44, 0.6);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: var(--muted);
+}
+
+.page-dot:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: scale(1.1);
+}
+
+.page-dot.active {
+  background: linear-gradient(135deg, var(--primary), #9b7cff);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 0 15px rgba(108, 76, 241, 0.35);
+  transform: scale(1.15);
+}
+
+/* لوحة معلومات الشاشة المعروضة */
+.screen-info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.screen-caption {
+  margin: 0;
+}
+
+.caption-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.caption-label::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--primary);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--primary);
+}
+
+.screen-caption h3 {
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--text), var(--muted));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.dark .screen-caption h3 {
+  background: linear-gradient(135deg, #ffffff, #b49bff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.screen-description {
+  color: var(--muted);
+  line-height: 1.75;
+  font-size: 16px;
+  max-width: 580px;
+}
+
+/* ألسنة التبديل الشبكية الذكية للتحكم بالشاشات (Grid Tabs) */
+.screen-tabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+  gap: 12px;
+  padding: 8px;
+  background: rgba(108, 76, 241, 0.04);
+  border: 1px solid rgba(108, 76, 241, 0.08);
+  border-radius: 24px;
+}
+
+body.dark .screen-tabs {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.04);
+}
+
+.screen-tab {
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--muted);
+  border-radius: 16px;
+  padding: 12px 10px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.screen-tab:hover {
+  color: var(--text);
+  background: rgba(108, 76, 241, 0.08);
+  transform: translateY(-2px);
+}
+
+body.dark .screen-tab:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.screen-tab.active {
+  color: white !important;
+  background: linear-gradient(135deg, var(--primary), #8866ff);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 10px 22px rgba(108, 76, 241, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px) scale(1.02);
+}
+
+
+/* Compatibility fix: page buttons are inside .app-phone-frame in the current HTML */
+.app-phone-frame {
+  overflow: visible;
+}
+
+.app-phone-frame img {
+  overflow: hidden;
+}
+
+.screen-page-buttons {
+  position: absolute;
+  left: 50%;
+  bottom: -40px;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 360px;
+}
+
+.single-page-label {
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(108, 76, 241, 0.18);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 900;
+  box-shadow: 0 10px 24px rgba(68, 45, 150, 0.08);
+}
+
+body.dark .single-page-label {
+  background: rgba(31, 27, 44, 0.92);
+}
+
+@media (max-width: 968px) {
+  .screen-page-buttons {
+    bottom: -52px;
+  }
+}
+
 
 /* Team */
 .team-grid {
@@ -675,31 +1101,36 @@ body.dark .light-section {
   color: white;
 }
 
-/* Reveal Animation */
-
-
-/* Dark mode fixes for phone preview */
-body.dark .phone-card .mini-grid div {
-  background: rgba(139, 108, 255, 0.28);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+/* Motion */
+.reveal {
+  opacity: 0;
+  transform: translateY(34px) scale(0.98);
+  transition: opacity 0.75s ease, transform 0.75s cubic-bezier(.2,.75,.2,1);
 }
 
-body.dark .phone-card .mini-grid strong {
-  color: #bca7ff;
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
-body.dark .phone-card .mini-grid span {
-  color: rgba(255, 255, 255, 0.82);
+.delay-1 {
+  transition-delay: 0.12s;
 }
 
-body.dark .phone-card .quick-action.light {
-  background: linear-gradient(135deg, #3b2a78, #5d45c9);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 12px 26px rgba(108, 76, 241, 0.22);
+.delay-2 {
+  transition-delay: 0.22s;
 }
 
-/* Tablet */
+.delay-3 {
+  transition-delay: 0.32s;
+}
+
+.tilt-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Responsive */
 @media (max-width: 1000px) {
   .hero,
   .about-grid,
@@ -726,9 +1157,38 @@ body.dark .phone-card .quick-action.light {
   .nav-links {
     display: none;
   }
+
+  .console-stage {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .screen-info-panel {
+    max-width: 720px;
+    justify-self: center;
+    text-align: center;
+  }
+
+  .screen-caption {
+    text-align: center;
+  }
+
+  .screen-tabs {
+    justify-content: center;
+  }
 }
 
-/* Mobile navbar fix only */
+@media (max-width: 800px) {
+  .screens-console {
+    padding: 24px 14px;
+    border-radius: 30px;
+  }
+
+  .hero-stats div {
+    flex: 1 1 120px;
+  }
+}
+
 @media (max-width: 700px) {
   .header {
     top: 10px;
@@ -784,7 +1244,7 @@ body.dark .phone-card .quick-action.light {
   .theme-toggle {
     width: 42px;
     height: 42px;
-    border-radius: 16px;
+    border-radius: 50%;
     font-size: 16px;
   }
 
@@ -793,6 +1253,25 @@ body.dark .phone-card .quick-action.light {
     border-radius: 18px;
     font-size: 14px;
     white-space: nowrap;
+  }
+}
+
+@media (max-width: 520px) {
+  .section-title h2 {
+    font-size: 34px;
+  }
+
+  .screen-tab {
+    padding: 9px 13px;
+    font-size: 12px;
+  }
+
+  .app-phone-frame {
+    width: min(290px, 82vw);
+  }
+
+  .screen-info-panel {
+    padding: 24px 18px;
   }
 }
 
@@ -809,5 +1288,16 @@ body.dark .phone-card .quick-action.light {
   .theme-toggle {
     width: 38px;
     height: 38px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
