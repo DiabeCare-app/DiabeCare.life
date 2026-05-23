@@ -1276,21 +1276,7 @@ body.dark .single-page-label {
   }
 }
 
-@media (max-width: 430px) {
-  .logo span {
-    font-size: 18px;
-  }
 
-  .nav-button {
-    padding: 10px 13px;
-    font-size: 13px;
-  }
-
-  .theme-toggle {
-    width: 38px;
-    height: 38px;
-  }
-}
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -2165,5 +2151,116 @@ body.dark .uob-logo-img {
 
   .screen-tabs {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .header {
+    width: calc(100% - 16px);
+    padding: 8px;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    gap: 7px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .logo-wrapper {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+  }
+
+  .uob-logo-img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .main-logo-text {
+    font-size: 17px;
+  }
+
+  .sub-logo-text {
+    font-size: 7px;
+    letter-spacing: 0.2px;
+  }
+
+  .logo-secondary-img,
+  .diabecare-brand-logo {
+    display: block !important;
+    width: 26px !important;
+    height: 26px !important;
+    max-width: 26px !important;
+    max-height: 26px !important;
+    flex: 0 0 26px;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .nav-actions {
+    flex: 0 0 auto;
+    gap: 7px;
+  }
+
+  .theme-toggle {
+    width: 42px;
+    height: 42px;
+  }
+
+  .nav-button {
+    padding: 13px 15px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 700px) {
+  .screens-console {
+    width: 100%;
+    padding: 18px 10px 26px;
+    overflow: hidden;
+  }
+
+  .console-stage {
+    grid-template-columns: 1fr !important;
+    gap: 26px;
+  }
+
+  .screen-preview-wrap {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .app-phone-frame {
+    width: min(72vw, 280px) !important;
+    max-width: 280px !important;
+    padding: 9px !important;
+    border-width: 8px !important;
+    border-radius: 40px !important;
+    overflow: hidden !important;
+    margin: 0 auto;
+  }
+
+  .app-phone-frame img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+    border-radius: 28px !important;
+  }
+
+  .screen-page-buttons {
+    position: static !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    margin: 18px auto 0 !important;
+    flex-wrap: wrap;
   }
 }
