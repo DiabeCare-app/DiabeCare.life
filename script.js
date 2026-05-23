@@ -211,7 +211,7 @@ const screenTitle = document.getElementById("screenTitle");
 const screenDescription = document.getElementById("screenDescription");
 const screenPageButtons = document.getElementById("screenPageButtons");
 
-let currentScreen = "dashboard";
+let currentScreen = "splash";
 let currentPage = 1;
 
 function getScreenImagePath(screenKey, pageNumber) {
@@ -285,7 +285,7 @@ screenTabs.forEach((tab) => {
   });
 });
 
-showScreen("dashboard", 1);
+showScreen("splash", 1);
 
 // --- Soft 3D Card Hover ---
 document.querySelectorAll(".tilt-card").forEach((card) => {
