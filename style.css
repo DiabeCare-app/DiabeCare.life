@@ -2264,3 +2264,632 @@ body.dark .uob-logo-img {
     flex-wrap: wrap;
   }
 }
+
+/* =========================================================
+   Final Academic Sections Polish — DFD, Conclusion, Team
+   Added safely as overrides to preserve the original design.
+========================================================= */
+
+.enhanced-methodology-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+.dfd-showcase {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.dfd-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,0.58));
+  border: 1px solid rgba(108, 76, 241, 0.14);
+  box-shadow: 0 24px 70px rgba(68, 45, 150, 0.12);
+  border-radius: 32px;
+  padding: 22px;
+  backdrop-filter: blur(18px);
+  transition: 0.28s ease;
+}
+
+body.dark .dfd-card {
+  background: linear-gradient(180deg, rgba(31,27,44,0.88), rgba(17,16,25,0.70));
+  border-color: rgba(255,255,255,0.10);
+}
+
+.dfd-card::before {
+  content: "";
+  position: absolute;
+  inset: -40% auto auto -30%;
+  width: 180px;
+  height: 180px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(139,108,255,0.18), transparent 68%);
+  pointer-events: none;
+}
+
+.dfd-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(108, 76, 241, 0.35);
+}
+
+.dfd-image-wrap {
+  display: grid;
+  place-items: center;
+  min-height: 230px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(108, 76, 241, 0.10);
+  overflow: hidden;
+  padding: 14px;
+}
+
+body.dark .dfd-image-wrap {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dfd-image-wrap img {
+  width: 100%;
+  max-height: 260px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 14px 28px rgba(68,45,150,0.12));
+}
+
+.dfd-card span,
+.conclusion-label {
+  display: inline-flex;
+  margin: 18px 0 10px;
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+}
+
+.dfd-card h3 {
+  color: var(--text);
+  font-size: 22px;
+  margin-bottom: 10px;
+  letter-spacing: -0.3px;
+}
+
+.dfd-card p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.enhanced-approach-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.conclusion-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.conclusion-card,
+.project-about-card,
+.info-table-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.84), rgba(255,255,255,0.56));
+  border: 1px solid rgba(108, 76, 241, 0.14);
+  box-shadow: 0 24px 70px rgba(68, 45, 150, 0.12);
+  border-radius: 32px;
+  padding: 32px;
+  backdrop-filter: blur(18px);
+  transition: 0.28s ease;
+}
+
+body.dark .conclusion-card,
+body.dark .project-about-card,
+body.dark .info-table-card {
+  background: linear-gradient(180deg, rgba(31,27,44,0.88), rgba(17,16,25,0.70));
+  border-color: rgba(255,255,255,0.10);
+}
+
+.conclusion-card:hover,
+.project-about-card:hover,
+.info-table-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(108, 76, 241, 0.35);
+}
+
+.conclusion-card h3 {
+  font-size: 30px;
+  letter-spacing: -0.7px;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.conclusion-card p,
+.project-about-card p {
+  color: var(--muted);
+  line-height: 1.85;
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+
+.future-list {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.future-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  color: var(--text);
+  font-weight: 800;
+  background: rgba(108, 76, 241, 0.08);
+  border: 1px solid rgba(108, 76, 241, 0.12);
+}
+
+.future-list li span {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  display: grid;
+  place-items: center;
+  color: white;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary), #9b7cff);
+  box-shadow: 0 10px 22px rgba(108, 76, 241, 0.24);
+  font-size: 12px;
+}
+
+.project-about-card {
+  max-width: 1050px;
+  margin: 0 auto 26px;
+  text-align: center;
+}
+
+.team-info-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.info-table-card h3 {
+  color: var(--text);
+  font-size: 22px;
+  margin-bottom: 18px;
+}
+
+.responsive-table {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.responsive-table table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+}
+
+.supervisor-card .responsive-table table {
+  min-width: 420px;
+}
+
+.responsive-table th,
+.responsive-table td {
+  padding: 15px 16px;
+  text-align: left;
+  border-bottom: 1px solid rgba(108, 76, 241, 0.10);
+  white-space: nowrap;
+}
+
+.responsive-table th {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.55px;
+  background: rgba(108, 76, 241, 0.08);
+}
+
+.responsive-table td {
+  color: var(--muted);
+  font-weight: 650;
+}
+
+.responsive-table tbody tr:hover td {
+  background: rgba(108, 76, 241, 0.045);
+  color: var(--text);
+}
+
+/* Keep phone showcase safe after academic section additions */
+.app-phone-frame {
+  isolation: isolate;
+}
+
+.app-phone-frame img {
+  max-width: 100%;
+}
+
+@media (max-width: 1100px) {
+  .dfd-showcase,
+  .enhanced-approach-grid,
+  .conclusion-grid,
+  .team-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dfd-image-wrap {
+    min-height: 190px;
+  }
+}
+
+@media (max-width: 700px) {
+  .dfd-showcase {
+    gap: 18px;
+  }
+
+  .dfd-card,
+  .conclusion-card,
+  .project-about-card,
+  .info-table-card {
+    padding: 22px;
+    border-radius: 26px;
+  }
+
+  .dfd-image-wrap {
+    min-height: 160px;
+    padding: 10px;
+    border-radius: 20px;
+  }
+
+  .dfd-image-wrap img {
+    max-height: 210px;
+  }
+
+  .conclusion-card h3 {
+    font-size: 25px;
+  }
+
+  .future-list li {
+    align-items: flex-start;
+    font-size: 14px;
+  }
+
+  .project-about-card {
+    text-align: left;
+  }
+
+  .responsive-table table,
+  .supervisor-card .responsive-table table {
+    min-width: 560px;
+  }
+}
+
+
+/* =========================================================
+   Final Polish Overrides - Header Logo, Team Info, Conclusion
+   These rules intentionally come last to preserve the original design
+   while fixing the requested layout issues.
+========================================================= */
+
+/* Keep the DiabeCare icon directly beside the DiabeCare word */
+.logo-text-group {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center;
+  min-width: 0;
+}
+
+.brand-title-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  line-height: 1;
+}
+
+.brand-title-row .main-logo-text {
+  line-height: 1;
+}
+
+.brand-title-row .logo-secondary-img,
+.brand-title-row .diabecare-brand-logo {
+  width: 32px !important;
+  height: 32px !important;
+  max-width: 32px !important;
+  max-height: 32px !important;
+  margin-left: 0 !important;
+  padding: 0 !important;
+  flex: 0 0 32px;
+  transform: translateY(1px);
+  object-fit: contain;
+  border-left: none !important;
+  background: transparent !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.logo {
+  align-items: center;
+}
+
+/* Conclusion card should fit its text instead of stretching to the height of Future Work */
+.conclusion-grid {
+  align-items: start !important;
+}
+
+.conclusion-card {
+  align-self: start !important;
+}
+
+.conclusion-summary-card {
+  height: auto !important;
+  min-height: 0 !important;
+  padding-bottom: 28px !important;
+}
+
+.conclusion-summary-card p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Compact and cleaner Project Team information cards */
+.team-info-grid {
+  max-width: 1120px;
+  margin: 0 auto 34px !important;
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 18px !important;
+}
+
+.info-table-card {
+  padding: 24px 26px !important;
+  border-radius: 28px !important;
+}
+
+.info-table-card h3 {
+  font-size: 20px !important;
+  margin-bottom: 14px !important;
+}
+
+.info-table-card .responsive-table table {
+  min-width: 0 !important;
+}
+
+.responsive-table th,
+.responsive-table td {
+  padding: 12px 14px !important;
+  font-size: 13px !important;
+}
+
+.responsive-table td {
+  line-height: 1.35;
+}
+
+.supervisor-card {
+  max-width: 720px;
+  width: 100%;
+  justify-self: center;
+}
+
+.supervisor-card .responsive-table table {
+  min-width: 0 !important;
+}
+
+.project-about-card {
+  padding: 24px 28px !important;
+  margin-bottom: 20px !important;
+}
+
+/* Slightly smaller visual team member cards */
+.team-grid {
+  gap: 18px !important;
+  padding-top: 10px !important;
+}
+
+.team-card {
+  min-width: 220px !important;
+  max-width: 260px !important;
+  padding: 20px !important;
+  border-radius: 24px !important;
+}
+
+.member-image-wrap {
+  max-height: 210px !important;
+  border-radius: 18px !important;
+}
+
+.team-card h3 {
+  font-size: 15.5px !important;
+}
+
+.team-card span {
+  font-size: 13px !important;
+}
+
+@media (max-width: 900px) {
+  .info-table-card .responsive-table table,
+  .supervisor-card .responsive-table table {
+    min-width: 620px !important;
+  }
+
+  .supervisor-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .brand-title-row {
+    gap: 5px;
+  }
+
+  .brand-title-row .logo-secondary-img,
+  .brand-title-row .diabecare-brand-logo {
+    width: 24px !important;
+    height: 24px !important;
+    max-width: 24px !important;
+    max-height: 24px !important;
+  }
+
+  .team-info-grid {
+    gap: 14px !important;
+  }
+
+  .info-table-card,
+  .project-about-card,
+  .conclusion-card {
+    padding: 20px !important;
+  }
+
+  .responsive-table th,
+  .responsive-table td {
+    padding: 11px 12px !important;
+    font-size: 12.5px !important;
+  }
+
+  .team-card {
+    min-width: 190px !important;
+    max-width: 230px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .brand-title-row .logo-secondary-img,
+  .brand-title-row .diabecare-brand-logo {
+    width: 21px !important;
+    height: 21px !important;
+    max-width: 21px !important;
+    max-height: 21px !important;
+  }
+
+  .team-card {
+    width: 100% !important;
+    max-width: 250px !important;
+  }
+}
+
+
+/* =========================================
+   Project Team cards update - no GitHub table
+   ========================================= */
+#team .team-info-grid,
+#team .info-table-card {
+  display: none !important;
+}
+
+#team .project-about-card {
+  max-width: 980px;
+  margin: 0 auto 34px !important;
+  padding: 24px 28px !important;
+  text-align: center;
+}
+
+#team .modern-team-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(210px, 1fr));
+  gap: 22px !important;
+  padding: 12px 0 0 !important;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+#team .modern-team-card {
+  min-width: 0 !important;
+  max-width: none !important;
+  width: 100%;
+  padding: 24px 18px 22px !important;
+  border-radius: 28px !important;
+  text-align: center;
+  align-items: center;
+  gap: 10px !important;
+}
+
+#team .modern-member-image-wrap {
+  width: 132px !important;
+  height: 132px !important;
+  max-height: none !important;
+  border-radius: 50% !important;
+  padding: 4px;
+  background: linear-gradient(135deg, var(--primary), #d7c7ff);
+  box-shadow: 0 14px 30px rgba(108, 76, 241, 0.20);
+  margin-bottom: 10px !important;
+}
+
+#team .modern-member-image-wrap .member-image,
+#team .modern-member-image-wrap img {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 50%;
+  object-fit: cover !important;
+  background: #fff;
+}
+
+#team .modern-team-card h3 {
+  font-size: 17px !important;
+  line-height: 1.25;
+  margin: 6px 0 0 !important;
+  color: var(--text);
+}
+
+#team .modern-team-card span {
+  color: var(--primary) !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+}
+
+#team .member-email {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 650;
+  margin-top: 2px;
+}
+
+#team .member-links {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+#team .member-links a {
+  width: 34px;
+  height: 34px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  text-decoration: none;
+  color: var(--text);
+  background: rgba(108, 76, 241, 0.08);
+  border: 1px solid rgba(108, 76, 241, 0.14);
+  font-weight: 900;
+  transition: 0.25s ease;
+}
+
+#team .member-links a:hover {
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), #9b7cff);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1100px) {
+  #team .modern-team-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  #team .modern-team-grid {
+    grid-template-columns: 1fr;
+    max-width: 330px;
+  }
+
+  #team .modern-member-image-wrap {
+    width: 118px !important;
+    height: 118px !important;
+  }
+}
