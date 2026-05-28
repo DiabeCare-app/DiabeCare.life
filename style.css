@@ -2894,6 +2894,23 @@ body.dark .info-table-card {
   }
 }
 
+/* Make DFD diagrams clear in dark mode */
+body.dark .dfd-image-wrap {
+  background: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+body.dark .dfd-image-wrap img {
+  background: #ffffff !important;
+  filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+}
+
+body.dark .dfd-card {
+  background: linear-gradient(180deg, rgba(31, 27, 44, 0.96), rgba(17, 16, 25, 0.92));
+}
+
 
 /* =========================================
    Elevator Pitch Section
